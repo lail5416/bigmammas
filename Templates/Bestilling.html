@@ -1,0 +1,103 @@
+<html>
+  <style>
+
+    h1{
+      width: 50%;
+      height: auto;
+      border-style: inset;
+      border-width: 7px;
+      border-color: rgb(35, 49, 172);
+    }
+
+    form{
+      width:70%;
+      border-style: inset;
+      border-width: 7px;
+      border-color: coral;
+    }
+    
+    div {
+      width: 97.5%;
+      border-radius: 5px;
+      background-color: #a07575;
+      padding: 20px;
+    }
+
+    button{
+      color: aqua;
+      background-color: black;
+      height:50px;
+      width: 200px;
+      float: left;
+    }
+
+    table{
+      background-color: #a07575;
+    }
+
+    input[type=submit]{
+      color: aqua;
+      background-color: black;
+      height:50px;
+      width:300px;
+    }
+
+
+    </style>
+
+
+  <head>
+    <title>Bestilling</title>
+  </head>
+  <body>
+   
+    <div class="container" align = "center">
+        <a href="/"><button>Gå til Start</button></a><h1> <br /> Big Mammas Pizza <br /><br /> </h1>
+    </div>
+
+
+    <div class="container" align = "center">
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+      
+      <form action="" method="post" style="text-align: center;" style="width:70%">
+        <table style="width:100%" align ="center">
+          <!-- For loop logic of jinja template -->
+        
+      
+          {%for x in data%}
+          <tr>
+          <td style="width:5%">{{x[0]}}</td>
+          <td style="width:15%">{{x[1]}}</td>
+          <td style="width:70%">{{x[2]}}</td>
+          <td style="width:10%"><label>kr:     </label>{{x[3]}}</td>
+          <td>
+            <input id="Pizza"  type="number" name="Pizzas" step="1" min="0" max="100" value="0">
+          </td>
+
+          </tr>
+          
+    
+          {%endfor%}
+    
+    
+        </table>
+        <br>
+        
+        <label>Take Away </label> <input type="checkbox" name="takeaway" checked>
+        <input type="hidden" name="takeaway" value="no">
+        <br>
+        <br>
+        <label>Navn: </label> <input type="text" name="Navn">
+        <br>
+        <br>
+        <input type="submit" value="Bestil" size="20">
+        <br>
+      </form> 
+
+    </div>
+
+  
+  </body>
+</html>
